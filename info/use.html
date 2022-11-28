@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>使用打印机 | LJ2655DN打印机使用教程 - 省机械联想班</title>
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+    <meta content="省机械联想班" name="author">
+
+    <!-- App css -->
+    <link href="../static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style">
+    <link href="../static/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
+    <script src="../assets/js/vue3/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/element-plus"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.alwolf.cn/js/alapi_log.js"></script>
+</head>
+
+<body class="loading authentication-bg" data-layout-config='{"darkMode":false}'>
+    <div id="app">
+        <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-12 col-lg-12">
+                        <div class="card">
+
+
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h1>联想服务</h1>
+                                    <h2>LJ2655DN打印机</h2>
+                                </div>
+
+                            </div>
+                            <!-- end card-body -->
+
+                        </div>
+                        <!-- end card -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <!-- Portlet card -->
+                                    <div class="card mb-md-0 mb-3">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-0">使用方法</h4>
+
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <i class="dripicons-warning"></i> 仅Windows、安卓和IOS端教程，Mac OS请自行百度
+                                                </div>
+                                                <div class="list-group">
+                                                    <a href="driver_install.html" class="list-group-item list-group-item-action">驱动安装</a>
+                                                    <a class="list-group-item list-group-item-action active disabled">使用打印机</a>
+                                                    <a href="faq.html" class="list-group-item list-group-item-action">常见问题</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <!-- Portlet card -->
+                                    <div v-if="im==1" class="card mb-md-0 mb-3">
+                                        <div class="card-body">
+                                            <h3 class="card-title mb-0 text-center">PC使用打印机</h3>
+
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <h4 class="text-danger">前提：请确保电脑，在【联想班A404】的局域网内</h4>
+                                                    <h4 class="text-danger">打开命令行工具，使用PING命令，ping 192.168.10.1</h4>
+                                                    <h4 class="text-danger">如ping【通了】，则在局域网内，如【不通】则不在</h4>
+                                                </div>
+
+                                                <div class="alert alert-warning" role="alert">
+                                                    <h4 class="text-danger">注意：打印的快捷键默认为：Ctrl+P</h4>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>WPS篇</h4>
+                                                    <h4>如图所示</h4>
+                                                    <img src="../assets/images/use/wps/P1.jpg" alt="P1" :height="inis">
+                                                    <br>
+                                                    <br>
+                                                    <img src="../assets/images/use/wps/P2.jpg" alt="P2" :height="inis+200">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                    <!-- end col -->
+                                    <div v-if="im==2" class="card mb-md-0 mb-3">
+                                        <div class="card-body">
+                                            <h3 class="card-title mb-0 text-center">移动端使用打印机</h3>
+
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <h4 class="text-danger">前提：请确保设备，在【联想班A404】的局域网内</h4>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <ul>
+                                                        <ol><a href="https://jingyan.baidu.com/article/afd8f4de8b9ae275e386e92a.html">IOS端教程</a></ol>
+                                                        <ol><a href="https://jingyan.baidu.com/article/7f766dafa2acf80000e1d069.html">安卓（荣耀-EMUI）端教程</a></ol>
+                                                        <ol><a href="https://jingyan.baidu.com/article/a3f121e4bfe27ebd9052bbbe.html">安卓（小米-MIUI）端教程</a></ol>
+                                                        <ol><a href="https://jingyan.baidu.com/article/86f4a73e8aa54376d65269ed.html">安卓（Oppo-ColorOS）端教程</a></ol>
+                                                        <ol><a href="https://jingyan.baidu.com/article/b7001fe1bc87ed4f7382dd12.html">安卓（vivo-OriginOS）端教程</a></ol>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+        </div>
+    </div>
+    <!-- end page -->
+    <footer class="footer footer-alt">
+        省机械联想班
+    </footer>
+    <!-- bundle -->
+    <script src="../static/js/vendor.min.js"></script>
+    <script src="../static/js/app.min.js"></script>
+    <script src="../assets/js/pages/use.min.js"></script>
+</body>
+
+</html>

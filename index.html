@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>LJ2655DN打印机使用教程 - 省机械联想班</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="省机械联想班" name="author">
+
+    <!-- App css -->
+    <link href="static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style">
+    <link href="static/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
+    <script src="assets/js/vue3/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/element-plus"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.alwolf.cn/js/alapi_log.js"></script>
+</head>
+
+<body class="loading authentication-bg" data-layout-config='{"darkMode":false}'>
+    <div id="app">
+        <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-12 col-lg-12">
+                        <div class="card">
+
+
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h1>联想服务</h1>
+                                    <h2>LJ2655DN打印机</h2>
+                                </div>
+
+                            </div>
+                            <!-- end card-body -->
+
+                        </div>
+                        <!-- end card -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <!-- Portlet card -->
+                                    <div class="card mb-md-0 mb-3">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-0">驱动下载，<span class="text-danger">注：联想班服务器内有驱动程序</span></h4>
+
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <i class="dripicons-warning"></i> Mac OS请到官网下载<br> <a href="/" class="nav-link" @click.prevent="open_url()">官网下载页</a>
+                                                </div>
+                                                <div v-loading="loading" style="width: 100%">
+                                                    <div class="mb-1">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-3">文件名称</dt>
+                                                            <dd class="col-sm-9">{{downlad.info.Filename}}</dd>
+
+                                                            <dt class="col-sm-3">支持的系统</dt>
+                                                            <dd class="col-sm-9">{{downlad.info.Os}}</dd>
+
+                                                            <dt class="col-sm-3">文件类型</dt>
+                                                            <dd class="col-sm-9">RAR压缩包、EXE文件</dd>
+                                                        </dl>
+                                                    </div>
+                                                    <button type="button" @click="File_Download()" class="btn btn-outline-secondary">下载</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <!-- Portlet card -->
+                                    <div class="card mb-md-0 mb-3">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-0">使用方法</h4>
+
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <i class="dripicons-warning"></i> 仅Windows、安卓和IOS端教程，Mac OS请自行百度
+                                                </div>
+                                                <div class="list-group">
+                                                    <a href="info/driver_install.html" class="list-group-item list-group-item-action">驱动安装</a>
+                                                    <a href="info/use.html" class="list-group-item list-group-item-action">使用打印机</a>
+                                                    <a href="info/faq.html" class="list-group-item list-group-item-action">常见问题</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
+        </div>
+    </div>
+    <!-- end page -->
+    <footer class="footer footer-alt">
+        省机械联想班
+    </footer>
+    <!-- bundle -->
+    <script src="static/js/vendor.min.js"></script>
+    <script src="static/js/app.min.js"></script>
+    <script src="assets/js/pages/index.min.js"></script>
+</body>
+
+</html>

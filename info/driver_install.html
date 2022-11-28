@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>驱动安装 | LJ2655DN打印机使用教程 - 省机械联想班</title>
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+    <meta content="省机械联想班" name="author">
+
+    <!-- App css -->
+    <link href="../static/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style">
+    <link href="../static/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
+    <script src="../assets/js/vue3/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/element-plus"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.alwolf.cn/js/alapi_log.js"></script>
+</head>
+
+<body class="loading authentication-bg" data-layout-config='{"darkMode":false}'>
+    <div id="app">
+        <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-12 col-lg-12">
+                        <div class="card">
+
+
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h1>联想服务</h1>
+                                    <h2>LJ2655DN打印机</h2>
+                                </div>
+
+                            </div>
+                            <!-- end card-body -->
+
+                        </div>
+                        <!-- end card -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <!-- Portlet card -->
+                                    <div class="card mb-md-0 mb-3">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-0">驱动下载，<span class="text-danger">注：联想班服务器内有驱动程序</span></h4>
+
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <i class="dripicons-warning"></i> Mac OS请到官网下载<br> <a href="/" class="nav-link" @click.prevent="open_url()">官网下载页</a>
+                                                </div>
+                                                <div v-loading="loading" style="width: 100%">
+                                                    <div class="mb-1">
+                                                        <dl class="row mb-0">
+                                                            <dt class="col-sm-3">文件名称</dt>
+                                                            <dd class="col-sm-9">{{downlad.info.Filename}}</dd>
+
+                                                            <dt class="col-sm-3">支持的系统</dt>
+                                                            <dd class="col-sm-9">{{downlad.info.Os}}</dd>
+
+                                                            <dt class="col-sm-3">文件类型</dt>
+                                                            <dd class="col-sm-9">RAR压缩包、EXE文件</dd>
+                                                        </dl>
+                                                    </div>
+                                                    <button type="button" @click="File_Download()" class="btn btn-outline-secondary">下载</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <!-- Portlet card -->
+                                    <div class="card mb-md-0 mb-3">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-0">使用方法</h4>
+
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="alert alert-warning" role="alert">
+                                                    <i class="dripicons-warning"></i> 仅Windows、安卓和IOS端教程，Mac OS请自行百度
+                                                </div>
+                                                <div class="list-group">
+                                                    <a class="list-group-item list-group-item-action active disabled">驱动安装</a>
+                                                    <a href="use.html" class="list-group-item list-group-item-action">使用打印机</a>
+                                                    <a href="faq.html" class="list-group-item list-group-item-action">常见问题</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <!-- Portlet card -->
+                                    <div class="card mb-md-0 mb-3">
+                                        <div class="card-body text-center">
+                                            <h3 class="card-title mb-0">驱动安装</h3>
+                                            <h4 class="text-danger">注：PC使用打印机，需要安装驱动，手机无需安装</h4>
+                                            <hr>
+                                            <div class="collapse pt-3 show text-center">
+                                                <div class="mb-3">
+                                                    <div class="alert alert-warning" role="alert">
+                                                        <h4 class="text-danger">前提：请确保电脑，在【联想班A404】的局域网内</h4>
+                                                        <h4 class="text-danger">打开命令行工具，使用PING命令，ping 192.168.10.1</h4>
+                                                        <h4 class="text-danger">如ping【通了】，则在局域网内，如【不通】则不在</h4>
+                                                    </div>
+                                                    <h4>1、在【官网】或点击【上方的下载按钮】，下载【驱动包】</h4>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <h4>2、如图所示，下载完成后，你就会获得一个RAR压缩包</h4>
+                                                    <img src="../assets/images/driver_install/P1.jpg" alt="P1" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>3、使用压缩工具（7zip、winRAR等），解压这个RAR包</h4>
+                                                    <img src="../assets/images/driver_install/P2.jpg" alt="P2" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>4、解压完成，进入文件夹，你就能看到解压出来的文件</h4>
+                                                    <img src="../assets/images/driver_install/P3.jpg" alt="P3" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>5、如图所示，双击进入【install】文件夹</h4>
+                                                    <img src="../assets/images/driver_install/P4.jpg" alt="P4" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>6、紧跟着，双击进入【LJ2655DN】文件夹</h4>
+                                                    <img src="../assets/images/driver_install/P5.jpg" alt="P5" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>7、再者，双击打开【Setup】安装程序</h4>
+                                                    <img src="../assets/images/driver_install/P6.jpg" alt="P6" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>8、如同所示，打开【Setup】安装程序后，选择【简体中文】，然后点击【OK】</h4>
+                                                    <img src="../assets/images/driver_install/P7.jpg" alt="P7" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>9、等待一会儿~</h4>
+                                                    <img src="../assets/images/driver_install/P8.jpg" alt="P8" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>10、等待一会后，如图所示，点击第二项【有线网络连接（以太网）】并勾选【自定义安装】</h4>
+                                                    <img src="../assets/images/driver_install/P9.jpg" alt="P9" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>11、如图所示，默认选项【第一项】，点击下一步</h4>
+                                                    <img src="../assets/images/driver_install/P10.jpg" alt="P10" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>12、如图所示，依旧默认选项【第一项】，点击下一步</h4>
+                                                    <img src="../assets/images/driver_install/P11.jpg" alt="P11" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>13、如图所示，按需选择，建议按【推荐】走</h4>
+                                                    <img src="../assets/images/driver_install/P12.jpg" alt="P12" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>13-1、如图所示，【第一项】</h4>
+                                                    <img src="../assets/images/driver_install/P12-1.jpg" alt="P12-1" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>13-2、如图所示，【第二项】</h4>
+                                                    <img src="../assets/images/driver_install/P12-2.jpg" alt="P12-2" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>14、如图所示</h4>
+                                                    <img src="../assets/images/driver_install/P13.jpg" alt="P13" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>15、如图所示</h4>
+                                                    <img src="../assets/images/driver_install/P14.jpg" alt="P14" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>16、如图所示，反选两个选项，点击【完成】，这样就完成了【驱动的安装】</h4>
+                                                    <img src="../assets/images/driver_install/P15.jpg" alt="P15" :height="inis">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <br>
+                                                    <h4>17、验证安装</h4>
+                                                    <img src="../assets/images/driver_install/P16.jpg" alt="P16" :height="inis">
+                                                </div>
+                                                <el-backtop :right="150" :bottom="200" />
+                                            </div>
+                                        </div>
+                                        <!-- end card-->
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <!-- end row -->
+                    </div>
+                    <!-- end container -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end page -->
+    <footer class="footer footer-alt">
+        省机械联想班
+    </footer>
+    <!-- bundle -->
+    <script src="../static/js/vendor.min.js"></script>
+    <script src="../static/js/app.min.js"></script>
+    <script src="../assets/js/pages/driver.min.js"></script>
+</body>
+
+</html>
